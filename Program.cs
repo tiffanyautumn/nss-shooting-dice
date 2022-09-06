@@ -8,10 +8,11 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
-            Player player1 = new Player();
+            SmackTalkingPlayer player1 = new SmackTalkingPlayer();
             player1.Name = "Bob";
+            player1.Taunt = "You suck!";
 
-            Player player2 = new Player();
+            OneHigherPlayer player2 = new OneHigherPlayer();
             player2.Name = "Sue";
 
             player2.Play(player1);
@@ -32,9 +33,44 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            HumanPlayer player5 = new HumanPlayer();
+            player5.Name = "The One";
+
+            player2.Play(player5);
+
+            Console.WriteLine("-------------------");
+
+            CreativeSmackTalkingPlayer player6 = new CreativeSmackTalkingPlayer();
+            player6.Name = "Sean";
+            player6.SmackTalk.Add("You're going down.");
+            player6.SmackTalk.Add("I'm the gambler");
+            player6.SmackTalk.Add("Booyah");
+            player1.Play(player6);
+
+            Console.WriteLine("-------------------");
+
+            SoreLoserPlayer player7 = new SoreLoserPlayer();
+            player7.Name = "Bucky";
+
+            player7.Play(player2);
+
+            Console.WriteLine("-------------------");
+
+            UpperHalfPlayer player8 = new UpperHalfPlayer();
+            player8.Name = "Hazel";
+
+            player8.Play(player1);
+
+            Console.WriteLine("-------------------");
+            SoreLoserUpperHalfPlayer player9 = new SoreLoserUpperHalfPlayer();
+            player9.Name = "Boone";
+
+            player9.Play(player3);
+
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1, player2, player3, large, player5, player6, player7, player8, player9
             };
+
 
             PlayMany(players);
         }
